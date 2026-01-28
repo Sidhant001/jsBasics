@@ -21,7 +21,7 @@ for (let a =0 ; a< cars.length ; a++){
 
 let oldestcar = cars[0]
 for(let b=0 ; b<cars.length ; b++){
-    if(cars[b].year<oldestcar.year){
+    if(cars[b].year<oldestcar){
         oldestcar= cars[b]
     }
 }console.log(oldestcar)
@@ -36,6 +36,67 @@ const avrprice = averageprice / cars.length;
 console.log(avrprice);
 
 //Sort by price (low → high)
+
+const asc= cars.slice().sort((a,b) => a.price - b.price);
+console.log("Cars sorted from price low to high:", asc);
+
+//Sort by year [Newest First]
+const desc= cars.slice().sort((a,b) => b.year - a.year);
+console.log("Cars sorted by year Newest To Oldest :", desc); 
+
+//Count cars manufactured after 2018
+
+let newcars = []
+for(let d=0;d<cars.length;d++){
+if (cars[d].year > 2018) {
+    newcars.push(cars[d])
+    }
+}
+console.log("Cars manufactyred after 2018 : "+newcars)
+
+//Create array with only brand & model
+
+let Carnames = cars.map(cars=>{
+    return{
+        barnd : cars.brand,
+        model : cars.model
+    }
+}) 
+console.log(Carnames)
+
+// Increase price by 5%
+let increasePrice = function (carsArray) {
+  return carsArray.map(car => car.price * 1.05);
+};
+
+const newPrices = increasePrice(cars);
+console.log("Increased Prices : "+newPrices);
+
+//Find the most expensive car
+
+function getMostExpensiveCar(cars) {
+  let maxCar = cars[0];
+
+  for (let e = 1; e < cars.length; e++) {
+    if (cars[e].price > maxCar.price) {
+      maxCar = cars[e];
+    }
+  }
+  return maxCar;
+}
+const result = getMostExpensiveCar(cars)
+console.log(result)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
